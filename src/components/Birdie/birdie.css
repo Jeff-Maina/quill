@@ -1,0 +1,41 @@
+
+#birdie {
+    height: auto;
+    width: auto;
+    position: absolute;
+    padding: 3px;
+    top: -75px;
+  }
+  
+  #birdie img {
+    cursor: pointer;
+  }
+  
+  .eye {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform-origin: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  .eye-ball {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+  }
+  
+  #eye-1 {
+    top: 22%;
+    left: 30%;
+  }
+  
+  #eye-2 {
+    top: 22%;
+    left: 57%;
+  }

@@ -1,0 +1,298 @@
+.form-container {
+  width: 90%;
+  height: 90%;
+  /* border: 1px solid #222; */
+}
+
+.form-title-signup{
+    margin-top: 0px;
+}
+
+.form-container form {
+  box-sizing: border-box;
+  padding-left: 1.4em;
+}
+
+.form-msg {
+  color: #999;
+  margin-bottom: 4em;
+}
+
+.form-msg-signup {
+    color: #999;
+    margin-bottom: 2em;
+  }
+
+.form-group {
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  position: relative;
+}
+
+.form-group input {
+  font-size: 18px;
+  padding: 10px 10px;
+  width: 90%;
+  border-radius: 5px;
+  margin: 10px 0;
+  outline: none;
+  border: 1px solid #999;
+}
+
+.form-group input::placeholder{
+    color: transparent;
+}
+
+.form-group input:focus {
+  border: 1px solid blue;
+}
+
+.checkbox-group {
+  width: 93%;
+  height: 2em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: #666;
+}
+
+.checkbox-group span {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.checkbox-group span h5 {
+  margin: 0;
+}
+
+.form-checkbox {
+  height: 15px;
+  width: 15px;
+  margin: 0 10px;
+  position: relative;
+  cursor: pointer;
+  position: relative;
+  top: -4px;
+}
+
+.form-checkbox::before {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid #999;
+}
+
+.form-checkbox::after {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  border-radius: 2px;
+  border: 3px solid #999;
+  border-top: none;
+  border-left: none;
+  left: 7px;
+  top: -6px;
+  transform-origin: center;
+  transform: rotate(40deg);
+  visibility: hidden;
+}
+
+.form-checkbox:checked::after {
+  visibility: visible;
+}
+
+.password-forgot-msg {
+  cursor: pointer;
+  margin: 0;
+}
+
+.password-forgot-msg:hover {
+  text-decoration: underline;
+}
+
+.form-btn {
+  width: 95%;
+  border: none;
+  padding: 10px;
+  font-size: 17px;
+  background-color: rgb(169, 168, 168);
+  border-radius: 5px;
+  margin-top: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.form-btn i {
+  font-size: 15px;
+  position: absolute;
+  right: 9em;
+  transition: 600ms ease;
+  opacity: 0;
+}
+
+.form-btn:hover i {
+  right: 5em;
+  opacity: 1;
+}
+
+.form-redirect {
+  color: #555;
+  margin-top: 4em;
+  margin-left: 5px;
+}
+
+.signup-redirect {
+    color: #555;
+    margin-top: 1.5em;
+    margin-left: 5px;
+}
+
+.navlink {
+  margin-left: 4px;
+}
+
+.error-box {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.error-box h5 {
+  color: rgb(203, 2, 2);
+  margin: 0;
+  visibility: hidden;
+}
+
+
+/* ! css validity test */
+
+.verification-icon-container {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 25px;
+  right: 40px;
+}
+
+.verification-icon-container i {
+  position: absolute;
+  opacity: 0;
+  transition: 300ms ease-in-out;
+}
+
+#person-icon {
+    color: #888;
+    opacity: 1;
+}
+
+#invalid-icon {
+    color: rgb(203, 2, 2);
+    transform: translate(0px, 10px);
+  opacity: 0;
+}
+
+#valid-icon {
+  color: green;
+  transform: translate(0px, 10px);
+  opacity: 0;
+}
+
+
+
+.form-group
+  input:not(:placeholder-shown):valid
+  ~ .verification-icon-container
+  #valid-icon {
+  color: green;
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+.form-group
+  input:not(:placeholder-shown):valid
+  ~ .verification-icon-container
+  #person-icon {
+  transform: translate(0px, 10px);
+  opacity: 0;
+}
+
+.form-group
+  input:not(:placeholder-shown):invalid
+  ~ .verification-icon-container
+  #invalid-icon {
+  color: rgb(203, 2, 2);
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+.form-group
+  input:not(:placeholder-shown):invalid
+  ~ .verification-icon-container
+  #person-icon {
+    transform: translate(0px, 10px);
+    opacity: 0;
+}
+
+
+/* password visibility icon */
+
+.visibility-icon-container {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 25px;
+    right: 40px;
+}
+
+.visibility-icon-container i{
+ position: absolute;
+ font-size: 20px;
+ color: #888;
+ transition: 300ms ease-in-out;
+}
+
+#lock-icon {
+    opacity: 1;
+    pointer-events: none;
+}
+
+#visibility-icon {
+  transform: translate(0px, 10px);
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+
+  #password-input:not(:placeholder-shown):valid
+  ~ .visibility-icon-container
+  #visibility-icon {
+  transform: translate(0px, 0px);
+  opacity: 1;
+}
+
+  #password-input:not(:placeholder-shown):valid
+  ~ .visibility-icon-container
+  #lock-icon {
+  transform: translate(0px, 10px);
+  opacity: 0;
+}
+
