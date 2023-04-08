@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: azure;
+  background-color: rgb(232, 231, 232);
   padding: 0;
   margin: 0;
   display: flex;
@@ -15,8 +15,9 @@
   background-color: #fff;
   width: 70%;
   min-width: 420px;
+  border-radius: 24px;
   height: 80%;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 5px;
   display: flex;
   align-items: center;
 }
@@ -28,11 +29,22 @@
   height: 100%;
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: center;
 }
 
-#row-left {
-  background-color: rgb(147, 195, 249);
+.form-details
+{
+  width: 90%;
+  height: 92%;
+  background-color: rgb(250, 217, 186);
+  border-radius: 24px;
+}
+
+#signup-row-left img{
+  position: absolute;
+  left: 0;
+  height: 100%;
 }
 
 
@@ -42,7 +54,7 @@
     flex-direction: column;
     height: 85%;
   }
-  #row-left {
+  #signup-row-left {
     width: 100%;
     height: 1em;
   }
