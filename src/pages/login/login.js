@@ -4,7 +4,7 @@ import LoginForm from "../../components/forms/loginform";
 import "./login.css";
 
 
-function LoginPage() {
+function LoginPage({toggleNotification}) {
   return (
     <div id="login-page-container">
       <div id="login-form-container">
@@ -12,7 +12,7 @@ function LoginPage() {
         <div className="form-row" id="row-left">
         </div>
         <div className="form-row">
-          <LoginForm/>
+          <LoginForm toggleNotification={toggleNotification}/>
         </div>
       </div>
     </div>

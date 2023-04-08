@@ -4,8 +4,6 @@
     background-color: #fff;
     position: absolute;
     z-index: 90000;
-    left: 50%;
-    transform: translate(-50%, 0%);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 4px;
     transition: 500ms ease;
     border-radius: 4px;
@@ -29,14 +27,6 @@
 .notif-new{
     --bg-color: #097afc;
     --before-bg-color: #0059be;
-}
-
-.notif-active{
-    top: 1em;
-}
-
-.notif-inactive{
-    top: -5em;
 }
 
 .notif-section{
@@ -89,4 +79,65 @@
     margin: 0;
     font-size: 16px;
     font-weight: 500;
+}
+
+
+/* ! PRIMARY NOTIFICATION STATES */
+
+.notif-primary-active{
+    left: 50%;
+    transform: translate(-50%, 0%);
+    top: 1em;
+}
+
+.notif-primary-inactive{
+    top: -5em;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+/* ! SECONDARY NOTIFICATION STATES */
+
+.notif-secondary-active{
+    bottom: 15px;
+    right: 15px;
+    animation: secondary-notif 900ms cubic-bezier(0.68, -0.85, 0.265, 1.55) alternate;
+}
+
+.notif-secondary-inactive{
+    bottom: 15px;
+    right: 15px;
+    transform: translate(120%, 0%);
+}
+
+@keyframes secondary-notif{
+    from{  
+       transform: translate(120%, 0%);
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
+}
+
+/* ! tertiary notification states */
+
+.notif-tertiary-active{
+    top: 15px;
+    right: 15px;
+    animation: tertiary-notif 900ms cubic-bezier(0.68, -0.85, 0.265, 1.55) alternate;
+}
+
+.notif-tertiary-inactive{
+    top: 15px;
+    right: 15px;
+    transform: translate(120%, 0%);
+}
+
+@keyframes tertiary-notif{
+    from{  
+       transform: translate(120%, 0%);
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
 }
