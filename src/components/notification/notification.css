@@ -7,7 +7,7 @@
     left: 50%;
     transform: translate(-50%, 0%);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 4px;
-    transition: 300ms ease;
+    transition: 500ms ease;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -72,8 +72,8 @@
 }
 
 .btn-section i{
-    font-size: 15px;
-    margin: 5px;
+    font-size: 10px;
+    margin: 7px;
     cursor: pointer;
 }
 
