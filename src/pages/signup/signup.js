@@ -12,7 +12,7 @@ function SignupPage() {
           <Birdie/>
           <div className="form-row" id="signup-row-left">
           <h1 className="login-webname">Quil.</h1>
-          <img src={Books_img} alt='books'></img>
+          {/* <img src={Books_img} alt='books'></img> */}
           </div>
           <div className="form-row">
             <Signupform/>

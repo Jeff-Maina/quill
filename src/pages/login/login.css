@@ -15,9 +15,7 @@
   position: relative;
   background-color: #fff;
   width: 70%;
-  border-radius: 24px;
   min-width: 420px;
-  /* min-height: 600px; */
   height: 80%;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
@@ -39,10 +37,6 @@
   height: 100%;
 }
 
-#row-left {
-  /* background-color: rgb(255, 255, 255); */
-}
-
 #row-left img{
   position: absolute;
   left: 0;
@@ -52,7 +46,7 @@
 .login-webname{
   font-size: 6rem;
   color: transparent;
-  background-image: linear-gradient(to right, #f9e7a3, #422a0b);
+  background-image: linear-gradient(to right, #120f01, #fc9106);
   z-index: 1000;
   padding: 5px;
   -webkit-background-clip: text;

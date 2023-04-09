@@ -13,7 +13,7 @@ function LoginPage({toggleNotification}) {
         <div className="form-row" id="row-left">
           <h1 className="login-webname">Quil.</h1>
           {/* <h4 className="form-phrase">Explore boundless worlds</h4> */}
-          <img src={Books_img} alt='books'></img>
+          {/* <img src={Books_img} alt='books'></img> */}
         </div>
         <div className="form-row">
           {/* <div className="ring"> </div> */}
