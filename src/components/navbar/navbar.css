@@ -1,198 +1,353 @@
-nav{
-    width: 100%;
-    height: 3em;
-    position: fixed;
-    display: flex;
-    /* position: relative; */
-    border-bottom: 1px solid rgb(187, 187, 187);
-    align-items: center;
+nav {
+  width: 100%;
+  height: 3em;
+  position: fixed;
+  display: flex;
+  /* position: relative; */
+  border-bottom: 1px solid rgb(187, 187, 187);
+  align-items: center;
 }
 
-.navbar-section{
-    height: 90%;
+.navbar-section {
+  height: 90%;
 }
 
-.user-controls{
-    position: absolute;
-    right: 20px;
-    width: 15%;
-    min-width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.user-controls {
+  position: absolute;
+  right: 20px;
+  width: 10%;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.user-controls i{
-    color: var(--icons-color);
-    cursor: pointer;
-    position: relative;
+.user-controls i {
+  color: var(--icons-color);
+  cursor: pointer;
+  position: relative;
 }
 
-#new-notifications-icon::after{
-    content: '';
-    position: absolute;
-    background-color: rgb(230, 9, 9);
-    height: 3px;
-    width: 3px;
-    border: 2px solid #fff;
-    top: 5px;
-    right: 4px;
-    border-radius: 50%;
+#new-notifications-icon::after {
+  content: "";
+  position: absolute;
+  background-color: rgb(230, 9, 9);
+  height: 3px;
+  width: 3px;
+  border: 2px solid #fff;
+  top: 5px;
+  right: 4px;
+  border-radius: 50%;
 }
 
-.profile-image{
-    height: 30px;
-    width: 30px;
-    background-color: black;
-    border-radius: 50%;
-    cursor: pointer;
+.profile-image {
+  height: 35px;
+  width: 35px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
 }
 
-
-.bookmarks-container{
-    position: absolute;
-    width: 20%;
-    border-left: 4px solid rgb(236, 236, 236);
-    right: 0;
-    height: 100vh;
-    background-color: #fff;
-    transition: 600ms ease;
-    display: flex;
-    flex-direction: column;
+.bookmarks-container {
+  position: absolute;
+  width: 20%;
+  border-left: 4px solid rgb(236, 236, 236);
+  right: 0;
+  height: 100vh;
+  background-color: #fff;
+  transition: 600ms ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.bookmarks-active{
-    transform: translate(0, 0);
+.bookmarks-active {
+  transform: translate(0, 0);
 }
 
-.bookmarks-inactive{
-    transform: translate(100%, 0);
+.bookmarks-inactive {
+  transform: translate(100%, 0);
 }
 
-#bookmarks-header{
-    width: 100%;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    position: relative;
+#bookmarks-header {
+  width: 100%;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-
-#bookmarks-header i{
-    font-size: 20px;
-    position: absolute;
-    left: 10px;
-    cursor: pointer;
-    top: 10px;
+#bookmarks-header i {
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  top: 10px;
 }
 
-
-#bookmarks-title{
-    color: #333;
-    letter-spacing: 2px;
-    margin: auto;
-    justify-self: center;
+#bookmarks-title {
+  color: #333;
+  letter-spacing: 2px;
+  margin: auto;
+  justify-self: center;
 }
 
-#bookmarked-books{
-    width: 98%;
-    height: 44em;
-    overflow-x: hidden;
-    overflow-y: scroll;
+#bookmarked-books {
+  width: 98%;
+  height: 44em;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
-
 
 /* ! scrollbar styling for bookmark section */
 
-
-#bookmarked-books::-webkit-scrollbar{
-    background-color: transparent;
-    width: 5px;
+#bookmarked-books::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
 }
 
-#bookmarked-books::-webkit-scrollbar-thumb{
-    background-color: rgb(184, 184, 184);
+#bookmarked-books::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
 
-#bookmarked-books::-webkit-scrollbar-thumb:hover{
-    background-color: rgb(162, 162, 162);
+#bookmarked-books:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(184, 184, 184);
 }
 
-.bm-book{
-    width: 100%;
-    height: 15em;
-    position: relative;
-    cursor: pointer;
-    transition: 4000ms ease;
+#bookmarked-books::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(162, 162, 162);
+}
+
+.bm-book {
+  width: 100%;
+  height: 15em;
+  position: relative;
+  cursor: pointer;
+  transition: 4000ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aquamarine; */
+}
+
+.bm-book::after {
+  position: absolute;
+  left: 0;
+  content: "";
+  height: 100%;
+  width: 6px;
+  background-color: rgb(200, 199, 199);
+  opacity: 0;
+  transition: 400ms ease;
+}
+
+.bm-book:hover::after {
+  opacity: 1;
+}
+
+.bm-book:hover {
+  background-image: linear-gradient(
+    to right,
+    rgba(231, 229, 229, 0.5) 1%,
+    rgba(227, 226, 226, 0.429) 20%,
+    transparent 100%
+  );
+}
+
+.bm-book-name {
+  position: absolute;
+  bottom: 0px;
+  margin: 0;
+  opacity: 0;
+  transition: 400ms ease;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.bm-book .book-image {
+  width: 40%;
+  height: 70%;
+  background-color: bisque;
+  transition: 400ms ease;
+}
+
+.bm-book .book-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.bm-book:hover .book-image {
+  scale: 0.9;
+}
+
+.bm-book:hover .bm-book-name {
+  bottom: 15px;
+  opacity: 1;
+}
+
+.bm-view-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #555;
+  opacity: 0;
+  transition: 400ms ease;
+}
+
+.bm-book:hover .bm-view-icon {
+  right: 8px;
+  opacity: 1;
+}
+
+/* !notification menu */
+
+.notifications-container {
+  position: absolute;
+  width: 25%;
+  border-left: 4px solid rgb(236, 236, 236);
+  right: 0;
+  height: 100vh;
+  background-color: #fff;
+  transition: 600ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.notifications-active {
+  transform: translate(0, 0);
+}
+
+.notifications-inactive {
+  transform: translate(100%, 0);
+}
+
+#notification-header {
+  width: 100%;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid rgb(217, 216, 216);
+}
+
+#notification-header i {
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  top: 10px;
+}
+
+#notification-title {
+  color: #333;
+  letter-spacing: 2px;
+  margin: auto;
+  justify-self: center;
+}
+
+#notifications-container {
+  width: 97%;
+  height: 41em;
+  align-self: center;
+  justify-self: center;
+  overflow-y: scroll;
+}
+
+/* ! scrollbar styling for bookmark section */
+
+#notifications-container::-webkit-scrollbar {
+  background-color: transparent;
+  width: 5px;
+}
+
+#notifications-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+#notifications-container:hover::-webkit-scrollbar-thumb {
+  background-color: rgb(184, 184, 184);
+}
+
+#notifications-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(125, 123, 123);
+}
+
+#notifications-container .notification {
+  cursor: pointer;
+  width: 100%;
+  height: 4em;
+  position: relative;
+  border-bottom: 1px solid rgb(219, 218, 218);
+  display: flex;
+  align-items: center;
+}
+
+.mark-read {
+  width: 100%;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  bottom: 0;
+}
+
+.mark-read h3 {
+  margin: 0;
+  margin-left: 13px;
+  color: #666;
+  font-size : 1rem;
+}
+
+.mark-read:hover{
+background-color: rgba(240, 240, 240);
+}
+
+#notifications-container .notification:hover {
+    background-color: rgba(240, 240, 240);
+}
+
+.notif-indicator {
+  width: 10%;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot-indicator {
+  width: 7px;
+  height: 7px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+.error-indicator {
+  background-color: red;
+}
+
+.success-indicator {
+  background-color: rgb(15, 182, 15);
+}
+
+.new-indicator {
+  background-color: blue;
+}
+
+.notif-content{
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* background-color: aquamarine; */
 }
 
-.bm-book::after{
-    position: absolute;
-    left: 0;
-    content: '';
-    height: 100%;
-    width: 6px;
-    background-color: rgb(200, 199, 199);
-    opacity: 0;
-    transition: 400ms ease;
-}
-
-.bm-book:hover::after{
-    opacity: 1;
-}
-
-.bm-book:hover{
-    background-image: linear-gradient(to right, rgba(231, 229, 229, 0.5) 1%, rgba(227, 226, 226, 0.429) 20%, transparent 100%);
-}
-
-.bm-book-name{
-    position: absolute;
-    bottom: 0px;
+.notif-content h5{
     margin: 0;
-    opacity: 0;
-    transition: 400ms ease;
-    font-size: 10px;
-    letter-spacing: 1px;
 }
 
-.bm-book .book-image{
-    width: 40%;
-    height: 70%;
-    background-color: bisque;
-    transition: 400ms ease;
+.notif-content h6{
+    margin: 0;
+    position: absolute;
+    bottom: 7px;
+    color: #999;
 }
-
-.bm-book .book-image img{
-    width: 100%;
-    height: 100%;
-}
-
-.bm-book:hover .book-image{
-scale: .9;
-}
-
-.bm-book:hover .bm-book-name{
-    bottom: 15px;
-    opacity: 1;
-}
-
-.bm-view-icon{
-    position: absolute ;
-    top: 15px;
-    right: 15px;
-    color: #555;
-    opacity: 0;
-    transition: 400ms ease;
-}
-
-.bm-book:hover .bm-view-icon{
-    right: 8px;
-    opacity: 1;
-}
-
-
 

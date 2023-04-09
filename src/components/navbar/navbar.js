@@ -4,12 +4,22 @@ import "./navbar.css";
 function Navbar() {
   // handles the bokmarks section
 
-  const [isBookmarkMenuactive, setBookmarkMenuActive] = useState("false");
+  const [isBookmarkMenuactive, setBookmarkMenuActive] = useState(false);
 
-  const bookmarksState = isBookmarkMenuactive ? "inactive" : "active";
+  const bookmarksState = isBookmarkMenuactive ? "active" : "inactive";
 
   let toggleBookmarkMenu = () => {
     setBookmarkMenuActive(!isBookmarkMenuactive);
+  };
+
+  //
+
+  const [isNotificationactive, setNotificationMenuActive] = useState(false);
+
+  const notificationMenuState = isNotificationactive ? "active" : "inactive";
+
+  let toggleNotificationMenu = () => {
+    setNotificationMenuActive(!isNotificationactive);
   };
 
   return (
@@ -26,12 +36,19 @@ function Navbar() {
           >
             bookmark
           </i>
-          <i className="material-symbols-outlined" id="new-notifications-icon">
+          <i
+            onClick={() => {
+              toggleNotificationMenu();
+            }}
+            className="material-symbols-outlined"
+            id="new-notifications-icon"
+          >
             notifications
           </i>
           <div className="profile-image"></div>
         </div>
       </nav>
+
       <div className={`bookmarks-container bookmarks-${bookmarksState}`}>
         <div id="bookmarks-header">
           <h5 id="bookmarks-title">BOOKMARKS</h5>
@@ -85,7 +102,7 @@ function Navbar() {
                 alt="img"
               />
             </div>
-            <h6 className="bm-book-name">HARRY POTTER SORCER'S STONE</h6>
+            <h6 className="bm-book-name">HARRY POTTER SORCERER'S STONE</h6>
           </div>
           <div className="bm-book">
             <i className="material-icons bm-view-icon">chevron_right</i>
@@ -121,6 +138,129 @@ function Navbar() {
             <h6 className="bm-book-name">ENCELADUS</h6>
           </div>
         </div>
+      </div>
+      <div
+        className={`notifications-container notifications-${notificationMenuState}`}
+      >
+        <div id="notification-header">
+          <h5 id="notification-title">NOTIFICATIONS</h5>
+          <i
+            onClick={() => {
+              toggleNotificationMenu();
+            }}
+            className="material-icons"
+          >
+            close
+          </i>
+        </div>
+        <div id="notifications-container">
+            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to add bookmark.</h5>
+                    <h6>Now</h6>
+                </div>
+            </div>
+            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator success-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Successfully added new bookmark.</h5>
+                    <h6>4h ago</h6>
+                </div>
+            </div>
+            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator new-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>New bookmark available.</h5>
+                    <h6>8h ago</h6>
+                </div>
+            </div>
+            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator success-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Successfully deleted bookmark</h5>
+                    <h6>10h ago</h6>
+                </div>
+            </div>
+            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>
+            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>            <div className="notification">
+                <div className="notif-indicator">
+                    <div className="dot-indicator error-indicator"></div>
+                </div>
+                <div className="notif-content">
+                    <h5>Failed to delete bookmark</h5>
+                    <h6>07 May 2018</h6>
+                </div>
+            </div>
+            
+        </div>
+        <div className="mark-read">
+                <h3>Mark all as read</h3>
+             </div>
       </div>
     </>
   );
