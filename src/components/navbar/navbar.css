@@ -296,15 +296,15 @@ nav {
   margin: 0;
   margin-left: 13px;
   color: #666;
-  font-size : 1rem;
+  font-size: 1rem;
 }
 
-.mark-read:hover{
-background-color: rgba(240, 240, 240);
+.mark-read:hover {
+  background-color: rgba(240, 240, 240);
 }
 
 #notifications-container .notification:hover {
-    background-color: rgba(240, 240, 240);
+  background-color: rgba(240, 240, 240);
 }
 
 .notif-indicator {
@@ -334,20 +334,107 @@ background-color: rgba(240, 240, 240);
   background-color: blue;
 }
 
-.notif-content{
+.notif-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.notif-content h5 {
+  margin: 0;
+}
+
+.notif-content h6 {
+  margin: 0;
+  position: absolute;
+  bottom: 7px;
+  color: #999;
+}
+
+/* ! user profile and stuff ...sad :( */
+
+#user-controls-menu{
+  position: absolute;
+  width: 17%;
+  min-height: 15em;
+  height: auto;
+  cursor: pointer;
+  right: 10px;
+  top: 7%;
+  border-radius: 10px;
+  border: 1px solid #999;
+  overflow: hidden;
+}
+
+.user-menu-active{
+    visibility: visible
+}
+
+.user-menu-inactive{
+    visibility: hidden
+}
+
+.user-menu-layer{
     height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: inherit;
+    transition:transform 600ms ease, opacity 300ms ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding: 10px 0px;
+}
+
+.layer-active{
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+.layer-previous-active{
+    transform: translate(-100%, 0);
+}
+
+.layer-inactive{
+    transform: translate(100%, 0);
+    opacity: 0;
+}
+
+.user-option{
+    width: calc(100% - 20px);
+    height: calc(100%/3);
     display: flex;
     align-items: center;
+    color: #555;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin: auto;
+    border-radius: 10px;
 }
 
-.notif-content h5{
-    margin: 0;
+
+.user-option .material-symbols-outlined{
+    margin-right: 20px;
 }
 
-.notif-content h6{
+.user-option h3{
     margin: 0;
+    color: #666;
+}
+
+.user-option .fas{
     position: absolute;
-    bottom: 7px;
-    color: #999;
+    right: 50px;
 }
 
+.user-option:hover{
+    background-color: rgba(214, 214, 214, 0.855);
+}
+
+#u-back-btn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}

@@ -1,8 +1,98 @@
 import React, { useState } from "react";
 import "./navbar.css";
 
+const UserMenu = ({ userMenuState }) => {
+
+
+  // handles the user menu section;
+
+    //   ? works better than i expected :)
+
+  let [layerOneState, setLayerOneState] = useState("active");
+  let [settingsState, setsettingsState] = useState("inactive");
+  let [profileInfoState, setProfileInfoState] = useState("inactive");
+
+  let toggleProfile = () => {
+    if (layerOneState === "active") {
+      setLayerOneState("previous-active");
+      setProfileInfoState("active");
+    } else {
+      setLayerOneState("active");
+      setProfileInfoState("inactive");
+    }
+  };
+
+  let toggleSettings = () => {
+    if (layerOneState === "active") {
+      setLayerOneState("previous-active");
+      setsettingsState("active");
+    } else {
+      setLayerOneState("active");
+      setsettingsState("inactive");
+    }
+  };
+
+
+
+
+  return (
+    <div id="user-controls-menu" className={`user-menu-${userMenuState}`}>
+      <div className={`user-menu-layer layer-${layerOneState}`}>
+        <div
+          onClick={() => {
+            toggleProfile();
+          }}
+          className="user-option"
+        >
+          <i className="material-symbols-outlined">person</i>
+          <h3>My Profile</h3>
+          <i class="fas fa-angle-right"></i>
+        </div>
+        <div
+          onClick={() => {
+            toggleSettings();
+          }}
+          className="user-option"
+        >
+          <i className="material-symbols-outlined">settings</i>
+          <h3>Settings</h3>
+          <i class="fas fa-angle-right"></i>
+        </div>
+        <div className="user-option">
+          <i className="material-symbols-outlined">logout</i>
+          <h3>Logout</h3>
+        </div>
+      </div>
+      <div className={`user-menu-layer layer-${settingsState}`}>
+        <i
+          onClick={() => {
+            toggleSettings();
+          }}
+          id="u-back-btn"
+          className="material-icons"
+        >
+          arrow_backwards
+        </i>
+        <h6>Settings</h6>
+      </div>
+      <div className={`user-menu-layer layer-${profileInfoState}`}>
+        <i
+          onClick={() => {
+            toggleProfile();
+          }}
+          id="u-back-btn"
+          className="material-icons"
+        >
+          arrow_backwards
+        </i>
+        <h6>Profile</h6>
+      </div>
+    </div>
+  );
+};
+
 function Navbar() {
-  // handles the bokmarks section
+  // handles the bokmarks menu section;
 
   const [isBookmarkMenuactive, setBookmarkMenuActive] = useState(false);
 
@@ -12,7 +102,7 @@ function Navbar() {
     setBookmarkMenuActive(!isBookmarkMenuactive);
   };
 
-  //
+  // handles the notifications menu section;
 
   const [isNotificationactive, setNotificationMenuActive] = useState(false);
 
@@ -20,6 +110,16 @@ function Navbar() {
 
   let toggleNotificationMenu = () => {
     setNotificationMenuActive(!isNotificationactive);
+  };
+
+  //   user menu section;
+
+  const [isUseractive, setUserMenuActive] = useState(true);
+
+  const userMenuState = isUseractive ? "active" : "inactive";
+
+  let toggleUserMenu = () => {
+    setUserMenuActive(!isUseractive);
   };
 
   return (
@@ -45,7 +145,12 @@ function Navbar() {
           >
             notifications
           </i>
-          <div className="profile-image"></div>
+          <div
+            onClick={() => {
+              toggleUserMenu();
+            }}
+            className="profile-image"
+          ></div>
         </div>
       </nav>
 
@@ -154,114 +259,121 @@ function Navbar() {
           </i>
         </div>
         <div id="notifications-container">
-            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to add bookmark.</h5>
-                    <h6>Now</h6>
-                </div>
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
             </div>
-            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator success-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Successfully added new bookmark.</h5>
-                    <h6>4h ago</h6>
-                </div>
+            <div className="notif-content">
+              <h5>Failed to add bookmark.</h5>
+              <h6>Now</h6>
             </div>
-            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator new-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>New bookmark available.</h5>
-                    <h6>8h ago</h6>
-                </div>
+          </div>
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator success-indicator"></div>
             </div>
-            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator success-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Successfully deleted bookmark</h5>
-                    <h6>10h ago</h6>
-                </div>
+            <div className="notif-content">
+              <h5>Successfully added new bookmark.</h5>
+              <h6>4h ago</h6>
             </div>
-            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
+          </div>
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator new-indicator"></div>
             </div>
-            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
-            </div>            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
-            </div>            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
-            </div>            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
-            </div>            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
-            </div>            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
-            </div>            <div className="notification">
-                <div className="notif-indicator">
-                    <div className="dot-indicator error-indicator"></div>
-                </div>
-                <div className="notif-content">
-                    <h5>Failed to delete bookmark</h5>
-                    <h6>07 May 2018</h6>
-                </div>
+            <div className="notif-content">
+              <h5>New bookmark available.</h5>
+              <h6>8h ago</h6>
             </div>
-            
+          </div>
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator success-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Successfully deleted bookmark</h5>
+              <h6>10h ago</h6>
+            </div>
+          </div>
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>{" "}
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>{" "}
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>{" "}
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>{" "}
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>{" "}
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>{" "}
+          <div className="notification">
+            <div className="notif-indicator">
+              <div className="dot-indicator error-indicator"></div>
+            </div>
+            <div className="notif-content">
+              <h5>Failed to delete bookmark</h5>
+              <h6>07 May 2018</h6>
+            </div>
+          </div>
         </div>
         <div className="mark-read">
-                <h3>Mark all as read</h3>
-             </div>
+          <h3>Mark all as read</h3>
+        </div>
       </div>
+
+      <UserMenu userMenuState={userMenuState} />
     </>
   );
 }
