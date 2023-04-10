@@ -3,7 +3,6 @@ nav {
   height: 3em;
   position: fixed;
   display: flex;
-  /* position: relative; */
   border-bottom: 1px solid rgb(187, 187, 187);
   align-items: center;
 }
@@ -59,6 +58,7 @@ nav {
   transition: 600ms ease;
   display: flex;
   flex-direction: column;
+  z-index: 2000;
 }
 
 .bookmarks-active {
@@ -211,6 +211,7 @@ nav {
   transition: 600ms ease;
   display: flex;
   flex-direction: column;
+  z-index: 2000;
 }
 
 .notifications-active {
@@ -351,19 +352,22 @@ nav {
   color: #999;
 }
 
+
+
+
 /* ! user profile and stuff ...sad :( */
 
 #user-controls-menu{
   position: absolute;
-  width: 17%;
-  min-height: 15em;
-  height: auto;
+  width: 20%;
+  height: 15em;
   cursor: pointer;
   right: 10px;
   top: 7%;
   border-radius: 10px;
   border: 1px solid #999;
   overflow: hidden;
+  transition: 300ms ease;
 }
 
 .user-menu-active{
@@ -379,7 +383,7 @@ nav {
     width: 100%;
     position: absolute;
     border-radius: inherit;
-    transition:transform 600ms ease, opacity 300ms ease;
+    transition:transform 300ms ease, opacity 100ms ease;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -389,7 +393,6 @@ nav {
 
 .layer-active{
     transform: translate(0, 0);
-    opacity: 1;
 }
 
 .layer-previous-active{
@@ -398,12 +401,11 @@ nav {
 
 .layer-inactive{
     transform: translate(100%, 0);
-    opacity: 0;
 }
 
 .user-option{
     width: calc(100% - 20px);
-    height: calc(100%/3);
+    height: 4em;
     display: flex;
     align-items: center;
     color: #555;
@@ -437,4 +439,130 @@ nav {
     top: 10px;
     left: 10px;
     cursor: pointer;
+    z-index: 10;
+}
+
+
+
+/* settings menu */
+
+#setings-layer{
+  
+}
+
+
+#settings-container{
+  width: 99%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  height: 23em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+
+.settings-option{
+  height: 3em;
+  width: 90%;
+  /* background-color: #666; */
+  position: relative;
+  background-color: #fff;
+  border-radius: 7px;
+  /* box-shadow: 0px 0px 0px 1px rgb(136, 136, 136, 0.5); */
+}
+
+
+
+/* dropdown yoh. */
+
+
+.dropdown{
+  width: 100%;
+  height: 3em;
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+
+
+.drop-summary{
+  height: 3em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #666;
+  /* background-color: rgb(159, 105, 105); */
+}
+
+.drop-summary h3{
+  font-size: 1.1rem;
+}
+
+.chevron-cont{
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  margin-right: 10px;
+}
+
+.chevron-cont i{
+  position: absolute;
+  margin: 0;
+  transition: 300ms ease;
+}
+
+#expand-more{
+  opacity: 1;
+}
+
+#expand-less{
+  opacity: 0;
+}
+
+.dropdown:hover #expand-more{
+  opacity: 0;
+}
+
+.dropdown:hover #expand-less{
+  opacity: 1;
+}
+
+.drop-summary h3{
+  margin: 0;
+}
+
+
+/* options yoh */
+
+.options{
+  position: absolute;
+  width: 101%;
+  background-color: #fff;
+  left: -1px;
+  height: 0em;
+  z-index: 3;
+  top: 120%;
+  border-radius: 7px;
+  transition: 500ms ease;
+  box-shadow: 0px 0px 0px 1px rgba(255, 254, 254, 0.5);
+
+
+}
+
+.dropdown:hover .options{
+  height: 11em;
+  box-shadow: 0px 0px 0px 1px rgb(136, 136, 136, 0.5);
+
+}
+
+.toggle-theme {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

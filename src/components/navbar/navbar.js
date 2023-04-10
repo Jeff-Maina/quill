@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import "./navbar.css";
 
 const UserMenu = ({ userMenuState }) => {
-
-
   // handles the user menu section;
 
-    //   ? works better than i expected :)
+  //   ? works better than i expected :)
 
   let [layerOneState, setLayerOneState] = useState("active");
   let [settingsState, setsettingsState] = useState("inactive");
@@ -23,17 +21,17 @@ const UserMenu = ({ userMenuState }) => {
   };
 
   let toggleSettings = () => {
+    let menu = document.querySelector("#user-controls-menu");
     if (layerOneState === "active") {
       setLayerOneState("previous-active");
       setsettingsState("active");
+      menu.style.height = "25em";
     } else {
       setLayerOneState("active");
       setsettingsState("inactive");
+      menu.style.height = "15em";
     }
   };
-
-
-
 
   return (
     <div id="user-controls-menu" className={`user-menu-${userMenuState}`}>
@@ -63,7 +61,11 @@ const UserMenu = ({ userMenuState }) => {
           <h3>Logout</h3>
         </div>
       </div>
-      <div className={`user-menu-layer layer-${settingsState}`}>
+
+      <div
+        className={`user-menu-layer layer-${settingsState} `}
+        id="setings-layer"
+      >
         <i
           onClick={() => {
             toggleSettings();
@@ -73,8 +75,53 @@ const UserMenu = ({ userMenuState }) => {
         >
           arrow_backwards
         </i>
-        <h6>Settings</h6>
+        <div id="settings-container">
+
+          {/* custom css dropdowns */}
+
+          <div className="settings-option">
+            <div className="dropdown">
+              <div className="drop-summary">
+                <h3>Theme Preferences</h3>
+                <div className="chevron-cont">
+                  <i id="expand-more" className="material-icons">
+                    expand_more
+                  </i>
+                  <i id="expand-less" className="material-icons">
+                    expand_less
+                  </i>
+                </div>
+              </div>
+
+              <div className="options"></div>
+            </div>
+          </div>
+          <div className="settings-option">
+            <div className="dropdown">
+              <div className="drop-summary">
+                <h3>Font Preferences</h3>
+                <div className="chevron-cont">
+                  <i id="expand-more" className="material-icons">
+                    expand_more
+                  </i>
+                  <i id="expand-less" className="material-icons">
+                    expand_less
+                  </i>
+                </div>
+              </div>
+
+              <div className="options"></div>
+            </div>
+          </div>
+
+          <div className="settings-option toggle-theme">
+              <h4>Dark mode</h4>
+              <i className="material-icons">dark_mode</i>
+          </div>
+          <div className="settings-option"></div>
+        </div>
       </div>
+
       <div className={`user-menu-layer layer-${profileInfoState}`}>
         <i
           onClick={() => {
@@ -114,7 +161,7 @@ function Navbar() {
 
   //   user menu section;
 
-  const [isUseractive, setUserMenuActive] = useState(true);
+  const [isUseractive, setUserMenuActive] = useState(false);
 
   const userMenuState = isUseractive ? "active" : "inactive";
 
