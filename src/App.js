@@ -51,7 +51,7 @@ function App() {
           <SignupPage />
         </Route>
 
-        <Route exact path = '/homepage'>
+        <Route exact path = '/'>
           <Homepage/>
         </Route>
 
