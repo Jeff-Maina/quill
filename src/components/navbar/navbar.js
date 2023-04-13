@@ -11,6 +11,7 @@ const UserMenu = ({ userMenuState }) => {
   let [profileInfoState, setProfileInfoState] = useState("inactive");
 
   let toggleProfile = () => {
+    let menu = document.querySelector("#user-controls-menu");
     if (layerOneState === "active") {
       setLayerOneState("previous-active");
       setProfileInfoState("active");
@@ -25,13 +26,49 @@ const UserMenu = ({ userMenuState }) => {
     if (layerOneState === "active") {
       setLayerOneState("previous-active");
       setsettingsState("active");
-      menu.style.height = "25em";
+      menu.style.height = "20em";
     } else {
       setLayerOneState("active");
       setsettingsState("inactive");
-      menu.style.height = "15em";
+      menu.style.height = "12em";
     }
   };
+
+
+
+
+  // * moving the indicator in the user-menu
+
+
+
+  let theme_types = document.querySelectorAll(".theme-type");
+  let font_types = document.querySelectorAll(".font-type");
+
+  let toggleThemeIndicator = (top) => {
+    let theme_options = document.querySelector("#theme-indicator");
+    theme_options.style.top = top + 'px';
+  };
+
+  theme_types.forEach((theme)=>{
+    theme.addEventListener("mouseover",(e) => {
+      let topValue = theme.dataset.status
+      toggleThemeIndicator(topValue)
+    } )
+  })
+
+  let toggleFontIndicator = (top) => {
+    let font_indicator = document.querySelector("#font-indicator");
+    font_indicator.style.top = top + 'px';
+  };
+
+  font_types.forEach((theme)=>{
+    theme.addEventListener("mouseover",(e) => {
+      let topValue = theme.dataset.status
+      toggleFontIndicator(topValue)
+    } )
+  })
+
+
 
   return (
     <div id="user-controls-menu" className={`user-menu-${userMenuState}`}>
@@ -43,7 +80,7 @@ const UserMenu = ({ userMenuState }) => {
           className="user-option"
         >
           <i className="material-symbols-outlined">person</i>
-          <h3>My Profile</h3>
+          <h4>My Profile</h4>
           <i class="fas fa-angle-right"></i>
         </div>
         <div
@@ -53,12 +90,12 @@ const UserMenu = ({ userMenuState }) => {
           className="user-option"
         >
           <i className="material-symbols-outlined">settings</i>
-          <h3>Settings</h3>
+          <h4>Settings</h4>
           <i class="fas fa-angle-right"></i>
         </div>
         <div className="user-option">
           <i className="material-symbols-outlined">logout</i>
-          <h3>Logout</h3>
+          <h4>Logout</h4>
         </div>
       </div>
 
@@ -66,15 +103,19 @@ const UserMenu = ({ userMenuState }) => {
         className={`user-menu-layer layer-${settingsState} `}
         id="setings-layer"
       >
-        <i
-          onClick={() => {
-            toggleSettings();
-          }}
-          id="u-back-btn"
-          className="material-icons"
-        >
-          arrow_backwards
-        </i>
+        <span className="layer-heading">
+          <i
+            onClick={() => {
+              toggleSettings();
+            }}
+            id="u-back-btn"
+            className="material-icons"
+          >
+            arrow_backwards
+          </i> 
+          <h4>SETTINGS</h4>
+        </span>
+
         <div id="settings-container">
 
           {/* custom css dropdowns */}
@@ -82,7 +123,7 @@ const UserMenu = ({ userMenuState }) => {
           <div className="settings-option">
             <div className="dropdown">
               <div className="drop-summary">
-                <h3>Theme Preferences</h3>
+                <h4>Theme Preferences</h4>
                 <div className="chevron-cont">
                   <i id="expand-more" className="material-icons">
                     expand_more
@@ -93,13 +134,20 @@ const UserMenu = ({ userMenuState }) => {
                 </div>
               </div>
 
-              <div className="options"></div>
+              <div className="options" id="theme-settings">
+                <h5 data-status="5" className="theme-type" >Cosmic Dreams</h5>
+                <h5 data-status="45" className="theme-type" >Enchanted Forest</h5>
+                <h5 data-status="82" className="theme-type" >Vintage Romance</h5>
+                <h5 data-status='120' className="theme-type" >Winter Wonderland</h5>
+                <h5 data-status = "160" className="theme-type" >Rustic Charm</h5>
+                <div className="option-hover-indicator" id="theme-indicator"></div>
+              </div>
             </div>
           </div>
           <div className="settings-option">
             <div className="dropdown">
               <div className="drop-summary">
-                <h3>Font Preferences</h3>
+                <h4>Font Preferences</h4>
                 <div className="chevron-cont">
                   <i id="expand-more" className="material-icons">
                     expand_more
@@ -110,7 +158,12 @@ const UserMenu = ({ userMenuState }) => {
                 </div>
               </div>
 
-              <div className="options"></div>
+              <div className="options">
+                <div className="option-hover-indicator" id="font-indicator"></div>
+                <h5 data-status="5" className="font-type">Poppins</h5>
+                <h5 data-status="42" className="font-type">Montserrat</h5>
+                <h5 data-status="82" className="font-type">Josefin Sans</h5>
+              </div>
             </div>
           </div>
 
@@ -118,22 +171,23 @@ const UserMenu = ({ userMenuState }) => {
               <h4>Dark mode</h4>
               <i className="material-icons">dark_mode</i>
           </div>
-          <div className="settings-option"></div>
+          <div className="settings-option toggle-cursor">
+            <h4>Custom cursor</h4>
+            <div id="custom-toggle-container">
+              <input type="checkbox" id="toggle-checkbox" />
+              <div id="toggle-dot"></div>
+            </div>
+          </div>
         </div>
       </div>
 
+
+
       <div className={`user-menu-layer layer-${profileInfoState}`}>
-        <i
-          onClick={() => {
-            toggleProfile();
-          }}
-          id="u-back-btn"
-          className="material-icons"
-        >
-          arrow_backwards
-        </i>
-        <h6>Profile</h6>
+        <i onClick={() => {toggleProfile();}} id="u-back-btn" className="material-icons">arrow_backwards</i>
+        <div id="profile-box"></div>
       </div>
+
     </div>
   );
 };
