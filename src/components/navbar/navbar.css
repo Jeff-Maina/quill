@@ -95,7 +95,7 @@ nav {
 
 #bookmarked-books {
   width: 98%;
-  height: 44em;
+  height: 95vh;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -204,7 +204,7 @@ nav {
 
 .notifications-container {
   position: absolute;
-  width: 25%;
+  width: 20%;
   border-left: 4px solid rgb(236, 236, 236);
   right: 0;
   height: 100vh;
@@ -251,7 +251,7 @@ nav {
 
 #notifications-container {
   width: 97%;
-  height: 41em;
+  height: 88vh;
   align-self: center;
   justify-self: center;
   overflow-y: scroll;

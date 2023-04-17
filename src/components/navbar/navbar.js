@@ -469,9 +469,9 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <div className="mark-read">
+        {/* <div className="mark-read">
           <h3>Mark all as read</h3>
-        </div>
+        </div> */}
       </div>
 
       <UserMenu userMenuState={userMenuState} />
