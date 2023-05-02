@@ -2,192 +2,39 @@ import React, { useState } from "react";
 import "./navbar.css";
 
 const UserMenu = ({ userMenuState }) => {
-  // handles the user menu section;
-
-  //   ? works better than i expected :)
-
-  let [layerOneState, setLayerOneState] = useState("active");
-  let [settingsState, setsettingsState] = useState("inactive");
-  let [profileInfoState, setProfileInfoState] = useState("inactive");
-
-  let toggleProfile = () => {
-    let menu = document.querySelector("#user-controls-menu");
-    if (layerOneState === "active") {
-      setLayerOneState("previous-active");
-      setProfileInfoState("active");
-    } else {
-      setLayerOneState("active");
-      setProfileInfoState("inactive");
-    }
-  };
-
-  let toggleSettings = () => {
-    let menu = document.querySelector("#user-controls-menu");
-    if (layerOneState === "active") {
-      setLayerOneState("previous-active");
-      setsettingsState("active");
-      menu.style.height = "20em";
-    } else {
-      setLayerOneState("active");
-      setsettingsState("inactive");
-      menu.style.height = "12em";
-    }
-  };
-
-
-
-
-  // * moving the indicator in the user-menu
-
-
-
-  let theme_types = document.querySelectorAll(".theme-type");
-  let font_types = document.querySelectorAll(".font-type");
-
-  let toggleThemeIndicator = (top) => {
-    let theme_options = document.querySelector("#theme-indicator");
-    theme_options.style.top = top + 'px';
-  };
-
-  theme_types.forEach((theme)=>{
-    theme.addEventListener("mouseover",(e) => {
-      let topValue = theme.dataset.status
-      toggleThemeIndicator(topValue)
-    } )
-  })
-
-  let toggleFontIndicator = (top) => {
-    let font_indicator = document.querySelector("#font-indicator");
-    font_indicator.style.top = top + 'px';
-  };
-
-  font_types.forEach((theme)=>{
-    theme.addEventListener("mouseover",(e) => {
-      let topValue = theme.dataset.status
-      toggleFontIndicator(topValue)
-    } )
-  })
-
-
-
   return (
-    <div id="user-controls-menu" className={`user-menu-${userMenuState}`}>
-      <div className={`user-menu-layer layer-${layerOneState}`}>
-        <div
-          onClick={() => {
-            toggleProfile();
-          }}
-          className="user-option"
+    <div id="usermenu-container" className={`user-menu-${userMenuState}`}>
+      <div id="pointer"></div>
+      <div className="option" id="profile-option">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          height="33"
+          id="profile"
         >
-          <i className="material-symbols-outlined">person</i>
-          <h4>My Profile</h4>
-          <i class="fas fa-angle-right"></i>
-        </div>
-        <div
-          onClick={() => {
-            toggleSettings();
-          }}
-          className="user-option"
+          <path
+            fill="#231f20"
+            d="M256 250.8a73.34 73.34 0 1 1 73.33-73.34A73.41 73.41 0 0 1 256 250.8zm0-125.53a52.2 52.2 0 1 0 52.19 52.19A52.25 52.25 0 0 0 256 125.27zm117.07 282.6H138.93l-10.57-10.57a127.64 127.64 0 1 1 255.28 0zM150 386.73h212a106.51 106.51 0 0 0-212 0z"
+          ></path>
+        </svg>
+        <h3>Profile</h3>
+      </div>
+      <div className="option">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="30"
+          viewBox="0 0 512 512"
+          id="settings"
         >
-          <i className="material-symbols-outlined">settings</i>
-          <h4>Settings</h4>
-          <i class="fas fa-angle-right"></i>
-        </div>
-        <div className="user-option">
-          <i className="material-symbols-outlined">logout</i>
-          <h4>Logout</h4>
-        </div>
+          <path d="M352 104c8.837 0 16 7.163 16 16s-7.163 16-16 16-16-7.163-16-16 7.163-16 16-16m0-16c-17.645 0-32 14.355-32 32s14.355 32 32 32 32-14.355 32-32-14.355-32-32-32zM352 376c8.837 0 16 7.163 16 16s-7.163 16-16 16-16-7.163-16-16 7.163-16 16-16m0-16c-17.645 0-32 14.355-32 32s14.355 32 32 32 32-14.355 32-32-14.355-32-32-32zM160 240c8.837 0 16 7.163 16 16s-7.163 16-16 16-16-7.163-16-16 7.163-16 16-16m0-16c-17.645 0-32 14.355-32 32s14.355 32 32 32 32-14.355 32-32-14.355-32-32-32zM207.32 248H480v16H207.32c.439-2.604.68-5.273.68-8s-.24-5.396-.68-8zM112 256c0 2.727.24 5.396.68 8H32v-16h80.68a47.955 47.955 0 00-.68 8zM399.32 384H480v16h-80.68c.439-2.604.68-5.273.68-8s-.24-5.396-.68-8zM304 392c0 2.727.24 5.396.68 8H32v-16h272.68a47.955 47.955 0 00-.68 8zM399.32 112H480v16h-80.68c.439-2.604.68-5.273.68-8s-.24-5.396-.68-8zM304.68 112c-.439 2.604-.68 5.273-.68 8s.24 5.396.68 8H32v-16h272.68z"></path>
+        </svg>
+        <h3>Settings</h3>
       </div>
-
-      <div
-        className={`user-menu-layer layer-${settingsState} `}
-        id="setings-layer"
-      >
-        <span className="layer-heading">
-          <i
-            onClick={() => {
-              toggleSettings();
-            }}
-            id="u-back-btn"
-            className="material-icons"
-          >
-            arrow_backwards
-          </i> 
-          <h4>SETTINGS</h4>
-        </span>
-
-        <div id="settings-container">
-
-          {/* custom css dropdowns */}
-
-          <div className="settings-option">
-            <div className="dropdown">
-              <div className="drop-summary">
-                <h4>Theme Preferences</h4>
-                <div className="chevron-cont">
-                  <i id="expand-more" className="material-icons">
-                    expand_more
-                  </i>
-                  <i id="expand-less" className="material-icons">
-                    expand_less
-                  </i>
-                </div>
-              </div>
-
-              <div className="options" id="theme-settings">
-                <h5 data-status="5" className="theme-type" >Cosmic Dreams</h5>
-                <h5 data-status="45" className="theme-type" >Enchanted Forest</h5>
-                <h5 data-status="82" className="theme-type" >Vintage Romance</h5>
-                <h5 data-status='120' className="theme-type" >Winter Wonderland</h5>
-                <h5 data-status = "160" className="theme-type" >Rustic Charm</h5>
-                <div className="option-hover-indicator" id="theme-indicator"></div>
-              </div>
-            </div>
-          </div>
-          <div className="settings-option">
-            <div className="dropdown">
-              <div className="drop-summary">
-                <h4>Font Preferences</h4>
-                <div className="chevron-cont">
-                  <i id="expand-more" className="material-icons">
-                    expand_more
-                  </i>
-                  <i id="expand-less" className="material-icons">
-                    expand_less
-                  </i>
-                </div>
-              </div>
-
-              <div className="options">
-                <div className="option-hover-indicator" id="font-indicator"></div>
-                <h5 data-status="5" className="font-type">Poppins</h5>
-                <h5 data-status="42" className="font-type">Montserrat</h5>
-                <h5 data-status="82" className="font-type">Josefin Sans</h5>
-              </div>
-            </div>
-          </div>
-
-          <div className="settings-option toggle-theme">
-              <h4>Dark mode</h4>
-              <i className="material-icons">dark_mode</i>
-          </div>
-          <div className="settings-option toggle-cursor">
-            <h4>Custom cursor</h4>
-            <div id="custom-toggle-container">
-              <input type="checkbox" id="toggle-checkbox" />
-              <div id="toggle-dot"></div>
-            </div>
-          </div>
-        </div>
+      <div className="option">
+        <i className="material-symbols-outlined">logout</i>
+        <h3>Logout</h3>
       </div>
-
-
-
-      <div className={`user-menu-layer layer-${profileInfoState}`}>
-        <i onClick={() => {toggleProfile();}} id="u-back-btn" className="material-icons">arrow_backwards</i>
-        <div id="profile-box"></div>
-      </div>
-
     </div>
   );
 };
@@ -196,9 +43,7 @@ function Navbar() {
   // handles the bokmarks menu section;
 
   const [isBookmarkMenuactive, setBookmarkMenuActive] = useState(false);
-
   const bookmarksState = isBookmarkMenuactive ? "active" : "inactive";
-
   let toggleBookmarkMenu = () => {
     setBookmarkMenuActive(!isBookmarkMenuactive);
   };
@@ -206,9 +51,7 @@ function Navbar() {
   // handles the notifications menu section;
 
   const [isNotificationactive, setNotificationMenuActive] = useState(false);
-
   const notificationMenuState = isNotificationactive ? "active" : "inactive";
-
   let toggleNotificationMenu = () => {
     setNotificationMenuActive(!isNotificationactive);
   };
@@ -216,9 +59,7 @@ function Navbar() {
   //   user menu section;
 
   const [isUseractive, setUserMenuActive] = useState(false);
-
   const userMenuState = isUseractive ? "active" : "inactive";
-
   let toggleUserMenu = () => {
     setUserMenuActive(!isUseractive);
   };
@@ -229,23 +70,40 @@ function Navbar() {
         <div className="navbar-section"></div>
         <div className="navbar-section"></div>
         <div className="navbar-section user-controls">
-          <i
-            onClick={() => {
-              toggleBookmarkMenu();
-            }}
-            className="material-symbols-outlined"
-          >
-            bookmark
-          </i>
-          <i
-            onClick={() => {
-              toggleNotificationMenu();
-            }}
-            className="material-symbols-outlined"
-            id="new-notifications-icon"
-          >
-            notifications
-          </i>
+          <div className="user-control-option">
+            <i
+              onClick={() => {
+                toggleBookmarkMenu();
+              }}
+              className="material-symbols-outlined"
+            >
+              bookmark
+            </i>
+            <div className="info-pod">
+              <div className="info-pointer"></div>
+              <div className="info-content">
+                <h5>Bookmarks</h5>
+              </div>
+            </div>
+          </div>
+          <div className="user-control-option">
+            <i
+              onClick={() => {
+                toggleNotificationMenu();
+              }}
+              className="material-symbols-outlined"
+              id="new-notifications-icon"
+            >
+              notifications
+            </i>
+            <div className="info-pod">
+              <div className="info-pointer"></div>
+              <div className="info-content">
+                <h5>Notifications</h5>
+              </div>
+            </div>
+          </div>
+
           <div
             onClick={() => {
               toggleUserMenu();
@@ -254,7 +112,10 @@ function Navbar() {
           ></div>
         </div>
       </nav>
-
+      <UserMenu
+        setUserMenuActive={setUserMenuActive}
+        userMenuState={userMenuState}
+      />
       <div className={`bookmarks-container bookmarks-${bookmarksState}`}>
         <div id="bookmarks-header">
           <h5 id="bookmarks-title">BOOKMARKS</h5>
@@ -473,8 +334,6 @@ function Navbar() {
           <h3>Mark all as read</h3>
         </div> */}
       </div>
-
-      <UserMenu userMenuState={userMenuState} />
     </>
   );
 }
