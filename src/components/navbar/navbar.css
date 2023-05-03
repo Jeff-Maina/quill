@@ -451,6 +451,7 @@ opacity: 1;
   background-color: #181b38;
   transform: translate(-40%, 160%);
   opacity: 0;
+  z-index: 1000;
   transition: 200ms ease;
 }
 
