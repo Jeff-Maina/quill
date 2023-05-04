@@ -1,0 +1,34 @@
+#main-body {
+  width: 100%;
+  height: auto;
+  border: 1px solid #999;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.main-body-col {
+  border: 1px solid #999;
+  height: 30em;
+}
+
+.stats-col {
+  width: 25%;
+}
+
+.books-col {
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  /* Change flex direction to column for small screens */
+  #main-body {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Reset width for flex items */
+  .main-body-col {
+    width: 100%;
+  }
+}
