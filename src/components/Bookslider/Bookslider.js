@@ -7,10 +7,25 @@ function BookSlider() {
       {/* <h1 id="slider-heading">Today's Picks</h1> */}
       <div id="slider-container">
         <div className="s-books-container">
-          <div className="s-book-image">
-            <img src="https://i.pinimg.com/564x/76/66/84/7666840a23cded4a54f7c0c089bce761.jpg"></img>
+          <div className="flex-cont">
+            <div className="s-book-image">
+              <img src="https://i.pinimg.com/564x/76/66/84/7666840a23cded4a54f7c0c089bce761.jpg"></img>
+            </div>
+            <div className="s-book-info">
+              <h3>Waves</h3>
+              <h5>By Richard Charbert</h5>
+              <p>
+                In culpa ut ad ea labore commodo ipsum nulla qui do. Voluptate
+                consequat ut dolor proident. Laboris mollit excepteur veniam
+                anim laboris ipsum id voluptate elit dolore. Aute amet sunt
+                laborum tempor adipisicing ea proident qui proident officia
+                anim. Et tempor incididunt est excepteur quis velit dolor.
+                Laboris irure ad pariatur labore minim occaecat ullamco dolor
+                adipisicing.
+              </p>
+              <button>Read More</button>
+            </div>
           </div>
-          <div className="s-book-info"></div>
         </div>
         <div className="s-books-container">
           <div className="flex-cont">
@@ -29,9 +44,7 @@ function BookSlider() {
                 Laboris irure ad pariatur labore minim occaecat ullamco dolor
                 adipisicing.
               </p>
-              <button>  
-                Read More
-              </button>
+              <button>Read More</button>
             </div>
           </div>
         </div>
@@ -40,8 +53,20 @@ function BookSlider() {
             <div className="s-book-image">
               <img src="https://i.pinimg.com/564x/eb/90/33/eb903389ef7772f5312da745f5bc862d.jpg"></img>
             </div>
-            <div className="s-book-info"></div>
-          </div>
+            <div className="s-book-info">
+              <h3>Constatine</h3>
+              <h5>By Boyle Johnson</h5>
+              <p>
+                In culpa ut ad ea labore commodo ipsum nulla qui do. Voluptate
+                consequat ut dolor proident. Laboris mollit excepteur veniam
+                anim laboris ipsum id voluptate elit dolore. Aute amet sunt
+                laborum tempor adipisicing ea proident qui proident officia
+                anim. Et tempor incididunt est excepteur quis velit dolor.
+                Laboris irure ad pariatur labore minim occaecat ullamco dolor
+                adipisicing.
+              </p>
+              <button>Read More</button>
+            </div>          </div>
         </div>
         <div className="s-books-container">
           <div className="s-book-image">

@@ -111,12 +111,7 @@ function Navbar() {
             className="profile-image"
           ></div>
         </div>
-      </nav>
-      <UserMenu
-        setUserMenuActive={setUserMenuActive}
-        userMenuState={userMenuState}
-      />
-      <div className={`bookmarks-container bookmarks-${bookmarksState}`}>
+              <div className={`bookmarks-container bookmarks-${bookmarksState}`}>
         <div id="bookmarks-header">
           <h5 id="bookmarks-title">BOOKMARKS</h5>
           <i
@@ -330,10 +325,12 @@ function Navbar() {
             </div>
           </div>
         </div>
-        {/* <div className="mark-read">
-          <h3>Mark all as read</h3>
-        </div> */}
       </div>
+      </nav>
+      <UserMenu
+        setUserMenuActive={setUserMenuActive}
+        userMenuState={userMenuState}
+      />
     </>
   );
 }
