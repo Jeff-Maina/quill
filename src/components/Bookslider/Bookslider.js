@@ -4,6 +4,7 @@ import "./bookslider.css";
 function BookSlider() {
   return (
     <section id="slider-section">
+      {/* <h1 id="slider-heading">Today's Picks</h1> */}
       <div id="slider-container">
         <div className="s-books-container">
           <div className="s-book-image">
@@ -18,6 +19,7 @@ function BookSlider() {
             </div>
             <div className="s-book-info">
               <h3>Fall: The end of a dream</h3>
+              <h5>By Elzabeth Monroe</h5>
               <p>
                 In culpa ut ad ea labore commodo ipsum nulla qui do. Voluptate
                 consequat ut dolor proident. Laboris mollit excepteur veniam
@@ -27,6 +29,9 @@ function BookSlider() {
                 Laboris irure ad pariatur labore minim occaecat ullamco dolor
                 adipisicing.
               </p>
+              <button>  
+                Read More
+              </button>
             </div>
           </div>
         </div>
