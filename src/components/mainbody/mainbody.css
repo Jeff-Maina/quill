@@ -1,34 +1,362 @@
 #main-body {
   width: 100%;
   height: auto;
-  border: 1px solid #999;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .main-body-col {
-  border: 1px solid #999;
-  height: 30em;
+  height: auto;
 }
 
 .stats-col {
+  min-width: 350px;
   width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#authors-box {
+  width: 90%;
+  height: auto;
+  margin-bottom: 1em;
+}
+
+#authors-box::-webkit-scrollbar {
+  display: none;
+}
+
+#authors-box h1,
+#authors-box h4 {
+  margin: 0;
+}
+
+#authors-box h1 {
+  margin: 20px 0px;
+  color: #444;
+  font-weight: 600;
+  margin-left: 40px;
+  font-size: 18px;
+}
+
+.author-pod {
+  width: 90%;
+  min-width: 200px;
+  height: 3.5em;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.author-pod:hover {
+  background-color: #f2efef;
+}
+
+.author-dp {
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  margin-right: 20px;
+  margin-left: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.author-dp img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.author-pod h4 {
+  font-weight: 500;
+  color: #444;
+}
+
+#books-box {
+  height: auto;
+  padding-bottom: 1em;
+  width: 90%;
+}
+
+#books-box h1 {
+  margin: 20px 0px;
+  color: #444;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 40px;
+}
+
+.book-pod {
+  width: 90%;
+  min-width: 340px;
+  height: 7em;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.b-cover {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b-cover img {
+  height: 80%;
+  max-height: 80%;
+}
+
+.b-details {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.b-details h4 {
+  color: #909090;
+  font-weight: 500;
+}
+
+.b-details h3 {
+  font-weight: 600;
+  color: #444;
+}
+
+.book-pod:hover {
+  background-color: #f2efef;
 }
 
 .books-col {
   flex-grow: 1;
+  height: 30em;
+}
+
+#books-col-header {
+  width: 99%;
+  height: 4em;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+#g-dropdown {
+  position: absolute;
+  right: 0;
+  display: none;
+  height: 100%;
+  /* border: 1px solid #888; */
+  display: flex;
+  align-items: center;
+  width: 10em;
+  justify-content: center;
+}
+
+#books-col-header h1 {
+  margin: 20px 0px;
+  color: #444;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 40px;
+}
+
+#genre-box {
+  width: 70%;
+  height: 100%;
+  /* border: 1px solid #ccc; */
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#genre-box input {
+  position: absolute;
+  opacity: 0;
+}
+
+#genre-box h5 {
+  font-size: 16px;
+  color: rgb(78, 81, 123);
+  font-weight: 600;
+}
+
+#genre-box span {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+#genre-box span input:checked ~ .g-indicator {
+  position: absolute;
+  height: 5px;
+  width: 50%;
+  background-color: rgb(0, 0, 0);
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border-radius: 5px;
+}
+
+#books-col-body {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  padding-top: 4em;
+  padding-left: 2em;
+  box-sizing: border-box;
+}
+
+.b-col-box {
+  position: relative;
+  width: 90%;
+  height: 17em;
+  margin-bottom: 60px;
+  display: flex;
+  border: 1px solid #e3e1e1;
+  border-radius: 5px;
+  box-shadow: rgba(166, 165, 165, 0.4) 0px 0px 10px;
+}
+
+.b-col-cover {
+  width: 40%;
+  max-width: 200px;
+  height: 100%;
+  padding-left: 30px;
+}
+
+.b-col-cover img {
+  width: 80%;
+  aspect-ratio: 1/1.33;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+    rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+    rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  transform: translate(0px, -40px);
+}
+
+.b-col-book-details {
+  width: 68%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-book-details {
+  width: 90%;
+  height: 90%;
+}
+
+.grid-book-details h3 {
+  margin: 0;
+  color: #444;
+  font-size: 22px;
+  font-size: clamp(14px, 3vw, 22px);
+  font-weight: 600;
+}
+
+.grid-book-details h4 {
+  margin: 0;
+  color: #939191;
+  font-weight: 500;
+  font-size: clamp(12px, 3vw, 16px);
+}
+
+.star-div {
+  height: 2em;
+  width: 100%;
+  margin: 0;
+}
+
+.grid-book-details p {
+  margin: 0;
+  font-size: clamp(10px, 2vw, 15px);
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 90%;
+  max-height: 200px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  white-space: normal !important;
 }
 
 @media (max-width: 768px) {
-  /* Change flex direction to column for small screens */
   #main-body {
     flex-direction: column;
     justify-content: flex-start;
   }
-
-  /* Reset width for flex items */
   .main-body-col {
     width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  #genre-box {
+    display: none;
+  }
+
+  #g-dropdown {
+    display: block;
+  }
+  #books-col-body {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding-top: 4em;
+    place-items: center;
+  }
+  .b-col-box {
+    position: relative;
+    width: 95%;
+    height: 13em;
+    margin-bottom: 5em;
+    display: flex;
+    border: 1px solid #ccc;
+  }
+  .b-col-cover {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .b-col-cover img {
+    margin-top: 40px;
+    width: 90%;
+    aspect-ratio: 1/1.33;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+      rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+      rgba(0, 0, 0, 0.07) 0px 16px 16px;
+  }
+
+  .grid-book-details p {
+    margin: 0;
+    font-size: clamp(13px, 2vw, 15px);
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 90%;
+    max-height: 200px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    white-space: normal !important;
+  }
+  .author-dp {
+    margin-left: 20px;
   }
 }
